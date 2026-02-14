@@ -1,81 +1,67 @@
-const taskInput = document.getElementById("taskInput");
-const dateInput = document.getElementById("dateInput");
-const addBtn = document.getElementById("addBtn");
-const taskList = document.getElementById("taskList");
-const counter = document.getElementById("counter");
+console.log("to do opration");
 
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+//select elments
+const inputTask=document.querySelector("input");
+const button=document.querySelector("button");
+const taskList=document.querySelector(".list");
 
-function saveTasks() {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+
+//eventlistener
+const inputHandler=function (){
+    const newTask=inputTask.value;
+
+    //To handle edge case <- input area blank but if we click on add task ,it add thr task in taskbar
+    if(newTask.length==0){
+        return;
+    }
+
+    //alert notification
+    // alert("newTask Added : " + newTask);
+
+    //create li
+    // const liElem=document.createElement("li");
+
+    //update
+    // liElem.innerText= newTask;
+    
+    //=====Function call 
+    const liElem=createTask(newTask);
+    //append this to their parent
+    const addedTask=taskList.appendChild(liElem);
+
+    //to refresh or clear input
+    inputTask.value="";
+
+    const liElemBttn=liElem.children[1];
+    liElemBttn.addEventListener("click",function (){
+        liElem.remove();
+
+    })
+
+
+    //to give delete option ,To delete task
+
+    // liElem.addEventListener("click",function (){
+    //     liElem.remove();
+    // });
+
 }
+//=======================by using delete button==================================
+function createTask(newTask){
 
-function updateCounter() {
-  counter.textContent = `Total Tasks: ${tasks.length}`;
+    const div=document.createElement("div");
+    const li=document.createElement("li");
+    const button=document.createElement("button");
+
+        //to give text in button
+    button.innerText="Delete Task"; 
+    button.style.display=
+    li.textContent=newTask;
+        
+        //appened
+    div.appendChild(li);
+    div.appendChild(button);
+    return div;
+
 }
-
-function renderTasks() {
-  taskList.innerHTML = "";
-
-  tasks.forEach((task, index) => {
-    const li = document.createElement("li");
-
-    if (task.completed) li.classList.add("completed");
-
-    li.innerHTML = `
-      <span>${task.text} (${task.date || "No date"})</span>
-      <div class="actions">
-        <button onclick="toggleComplete(${index})">✔</button>
-        <button onclick="editTask(${index})">✏</button>
-        <button onclick="deleteTask(${index})">🗑</button>
-      </div>
-    `;
-
-    taskList.appendChild(li);
-  });
-
-  updateCounter();
-}
-
-function addTask() {
-  const text = taskInput.value.trim();
-  const date = dateInput.value;
-
-  if (!text) return;
-
-  tasks.push({ text, date, completed: false });
-  saveTasks();
-  renderTasks();
-
-  taskInput.value = "";
-  dateInput.value = "";
-}
-
-function deleteTask(index) {
-  tasks.splice(index, 1);
-  saveTasks();
-  renderTasks();
-}
-
-function toggleComplete(index) {
-  tasks[index].completed = !tasks[index].completed;
-  saveTasks();
-  renderTasks();
-}
-
-function editTask(index) {
-  const newText = prompt("Edit task:", tasks[index].text);
-  if (newText) {
-    tasks[index].text = newText;
-    saveTasks();
-    renderTasks();
-  }
-}
-
-addBtn.addEventListener("click", addTask);
-
-taskInput.addEventListener("keypress", e => {
-  if (e.key === "Enter") addTask();
-});
-
-renderTasks();
+button.addEventListener("click",inputHandler );
