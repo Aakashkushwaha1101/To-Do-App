@@ -1,11 +1,9 @@
-/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Background */
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea, #764ba2);
@@ -15,40 +13,39 @@ body {
     align-items: center;
 }
 
-/* Main Card */
 .todo {
     width: 520px;
-    height: auto;
     background: #ffffff;
     border-radius: 14px;
-    padding: 25px;
+    padding: 25px 30px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    border: none;
 }
 
-/* Title */
+/* Title alignment */
 h2 {
     text-align: center;
     font-size: 32px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     color: #333;
 }
 
-h3 {
-    text-align: center;
-    color: #667eea;
-    margin-bottom: 10px;
-}
-
-/* Input Area */
+/* Fix input alignment */
 .input-area {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 10px;
-    margin: 15px 0;
+    margin-bottom: 20px;
 }
 
-/* Inputs */
+/* TaskBar heading — align left for professional look */
+h3 {
+    text-align: left;
+    color: #667eea;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
 input {
     padding: 8px 10px;
     border-radius: 8px;
@@ -62,7 +59,6 @@ input:focus {
     box-shadow: 0 0 6px rgba(102,126,234,0.4);
 }
 
-/* Buttons */
 button {
     padding: 8px 14px;
     border-radius: 8px;
@@ -79,9 +75,7 @@ button:hover {
     box-shadow: 0 5px 12px rgba(0,0,0,0.2);
 }
 
-/* Task List Box */
 .list {
-    border: none;
     background: #f8f9ff;
     border-radius: 10px;
     padding: 15px;
@@ -89,7 +83,7 @@ button:hover {
     overflow-y: auto;
 }
 
-/* Task Row */
+/* Task rows */
 .list div {
     display: flex;
     justify-content: space-between;
@@ -99,26 +93,19 @@ button:hover {
     border-radius: 8px;
     margin-bottom: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: 0.2s;
 }
 
-.list div:hover {
-    transform: scale(1.02);
-}
-
-/* Date Input */
 .inpt {
     margin-top: 6px;
     padding: 6px;
 }
 
-/* Label */
 label {
     font-weight: 600;
     color: #555;
 }
 
-/* Scrollbar Styling */
+/* Scrollbar */
 .list::-webkit-scrollbar {
     width: 6px;
 }
