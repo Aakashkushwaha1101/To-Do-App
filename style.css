@@ -4,15 +4,28 @@
     box-sizing: border-box;
 }
 
+/* Page layout */
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea, #764ba2);
     min-height: 100vh;
     display: flex;
+    flex-direction: column; /* stack heading + card */
     justify-content: center;
     align-items: center;
 }
 
+/* Main heading */
+h1 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Main card */
 .todo {
     width: 520px;
     background: #ffffff;
@@ -21,15 +34,7 @@ body {
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
 
-/* Title alignment */
-h2 {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Fix input alignment */
+/* Input area */
 .input-area {
     display: flex;
     justify-content: center;
@@ -38,7 +43,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* TaskBar heading — align left for professional look */
+/* TaskBar heading */
 h3 {
     text-align: left;
     color: #667eea;
@@ -46,6 +51,7 @@ h3 {
     font-weight: 600;
 }
 
+/* Inputs */
 input {
     padding: 8px 10px;
     border-radius: 8px;
@@ -59,6 +65,7 @@ input:focus {
     box-shadow: 0 0 6px rgba(102,126,234,0.4);
 }
 
+/* Buttons */
 button {
     padding: 8px 14px;
     border-radius: 8px;
@@ -75,6 +82,7 @@ button:hover {
     box-shadow: 0 5px 12px rgba(0,0,0,0.2);
 }
 
+/* Task list */
 .list {
     background: #f8f9ff;
     border-radius: 10px;
@@ -95,11 +103,13 @@ button:hover {
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
+/* Date input */
 .inpt {
     margin-top: 6px;
     padding: 6px;
 }
 
+/* Label */
 label {
     font-weight: 600;
     color: #555;
